@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
+import { MainTitle } from './AppStyled';
+import { HTwo } from './PhoneBookList/PhoneBookListStyled';
+import { Section } from './AppStyled';
 import { PhoneBookForm } from './PhoneBookForm';
+import { Filter } from './Filter';
 import { PhoneBookList } from './PhoneBookList/PhoneBookList';
 import { nanoid } from 'nanoid';
 const INITIAL_STATE = {
@@ -40,7 +44,7 @@ export class App extends Component {
   };
   arrayWithSearch = () => {
     const searchQuery = this.state.filter;
-    const filtered = this.state.contacts.filter(el => el.name.includes(searchQuery));
+    const filtered = this.state.contacts.filter(el => el.name.toLowerCase().includes(searchQuery));
     return filtered;
   };
   reset = () => {
@@ -48,18 +52,19 @@ export class App extends Component {
   };
   render() {
     return (
-      <>
+      <Section>
+        <MainTitle>Phonebook</MainTitle>
         <PhoneBookForm
           changeBook={this.changeBook}
           nameValue={this.state.name}
           handleChangeName={this.handleChangeName}
+          telValue={this.state.number}
           handleChangeTel={this.handleChangeTel}
         ></PhoneBookForm>
-        <PhoneBookList
-          array={this.arrayWithSearch()}
-          search={this.handleChangeSearch}
-        ></PhoneBookList>
-      </>
+        <HTwo>Contacts</HTwo>
+        <Filter handleChangeSearch={this.handleChangeSearch} />
+        <PhoneBookList array={this.arrayWithSearch()} />
+      </Section>
     );
   }
 }

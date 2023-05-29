@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 export const DivContacts = styled.div`
-  width: 400px;
   padding: 15px;
   margin-left: auto;
   margin-right: auto;

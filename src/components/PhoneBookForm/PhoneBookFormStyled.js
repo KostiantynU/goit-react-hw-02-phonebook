@@ -1,16 +1,10 @@
 import styled from 'styled-components';
 export const BookForm = styled.form`
-  width: 400px;
-  padding: 15px;
-  margin-left: auto;
-  margin-right: auto;
+  padding: 5px;
 `;
 export const Div = styled.div`
   border: 1px solid black;
   border-radius: 5px;
-`;
-export const HOne = styled.h1`
-  margin: 0.2em;
 `;
 export const NameInput = styled.input`
   width: 300px;
