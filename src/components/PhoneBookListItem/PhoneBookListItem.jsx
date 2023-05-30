@@ -1,20 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { BookLi, NameSpan, TelSpan } from './PhoneBookListItemStyled';
+import { PhoneBookListItem, NameSpan, TelSpan } from './PhoneBookListItemStyled';
 import { DeleteBtn } from 'components/PhoneBookForm/PhoneBookFormStyled';
 
-export class BookItem extends Component {
-  render() {
-    const { contactName, number, btnId, deleteItem } = this.props;
-    return (
-      <BookLi>
-        <NameSpan>{contactName} :</NameSpan> <TelSpan>{number}</TelSpan>
-        <DeleteBtn type="button" data-id={btnId} onClick={evt => deleteItem(evt)}>
-          Delete
-        </DeleteBtn>
-      </BookLi>
-    );
-  }
+export function BookItem(props) {
+  const { contactName, number, btnId, deleteItem } = props;
+  return (
+    <PhoneBookListItem>
+      <NameSpan>{contactName} :</NameSpan> <TelSpan>{number}</TelSpan>
+      <DeleteBtn type="button" onClick={() => deleteItem(btnId)}>
+        Delete
+      </DeleteBtn>
+    </PhoneBookListItem>
+  );
 }
 BookItem.propTypes = {
   contactName: PropTypes.string.isRequired,

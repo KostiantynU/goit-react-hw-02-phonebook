@@ -45,13 +45,12 @@ export class App extends Component {
     return filtered;
   };
 
-  deleteItem = evt => {
-    const whatToDelete = evt.target.dataset.id;
+  deleteItem = btnId => {
     this.setState(prevState => {
       return {
         contacts: [
           ...prevState.contacts.filter(el => {
-            return el.id !== whatToDelete;
+            return el.id !== btnId;
           }),
         ],
       };

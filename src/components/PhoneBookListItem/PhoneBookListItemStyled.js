@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-export const BookLi = styled.li`
+export const PhoneBookListItem = styled.li`
   width: 90%;
   height: auto;
   display: flex;
