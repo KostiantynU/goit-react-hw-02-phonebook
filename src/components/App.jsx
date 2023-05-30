@@ -20,6 +20,17 @@ export class App extends Component {
   state = { ...INITIAL_STATE };
 
   changeContacts = newContact => {
+    console.log(newContact.name);
+    if (
+      this.state.contacts.some(el => {
+        return el.name.toLowerCase().includes(newContact.name.toLowerCase());
+        // Ще один варіант порівняння імені наявного в списку контактів
+        // Перший варіант мені більше подобається
+        // return el.name.toLowerCase() === newContact.name.toLowerCase();
+      })
+    ) {
+      return alert(`${newContact.name} is already in list!`);
+    }
     this.setState(prevState => {
       return { contacts: [...prevState.contacts, newContact] };
     });
