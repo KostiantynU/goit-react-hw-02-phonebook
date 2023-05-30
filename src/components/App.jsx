@@ -20,7 +20,6 @@ export class App extends Component {
   state = { ...INITIAL_STATE };
 
   changeContacts = newContact => {
-    console.log(newContact.name);
     if (
       this.state.contacts.some(el => {
         return el.name.toLowerCase().includes(newContact.name.toLowerCase());
@@ -46,6 +45,18 @@ export class App extends Component {
     return filtered;
   };
 
+  deleteItem = evt => {
+    const whatToDelete = evt.target.dataset.id;
+    this.setState(prevState => {
+      return {
+        contacts: [
+          ...prevState.contacts.filter(el => {
+            return el.id !== whatToDelete;
+          }),
+        ],
+      };
+    });
+  };
   render() {
     return (
       <Section>
@@ -53,7 +64,7 @@ export class App extends Component {
         <PhoneBookForm changeContacts={this.changeContacts} />
         <HTwo>Contacts</HTwo>
         <Filter handleChangeSearch={this.handleChangeSearch} />
-        <PhoneBookList array={this.arrayWithSearch()} />
+        <PhoneBookList array={this.arrayWithSearch()} deleteItem={this.deleteItem} />
       </Section>
     );
   }

@@ -5,12 +5,20 @@ import { BookItem } from 'components/PhoneBookListItem';
 
 export class PhoneBookList extends Component {
   render() {
-    const { array } = this.props;
+    const { array, deleteItem } = this.props;
     return (
       <DivContacts>
         <ListContacts>
           {array.map(({ name, id, number }) => {
-            return <BookItem key={id} contactName={name} number={number} />;
+            return (
+              <BookItem
+                key={id}
+                contactName={name}
+                number={number}
+                btnId={id}
+                deleteItem={deleteItem}
+              />
+            );
           })}
         </ListContacts>
       </DivContacts>
@@ -25,4 +33,5 @@ PhoneBookList.propTypes = {
       number: PropTypes.string.isRequired,
     }).isRequired
   ),
+  deleteItem: PropTypes.func.isRequired,
 };

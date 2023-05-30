@@ -28,6 +28,14 @@ export const AddBtn = styled.button`
   background: transparent;
   border-radius: 10px;
   border: 1px solid gray;
+  &:hover,
+  &:focus {
+    background: rgba(0, 216, 255, 074);
+  }
 `;
 export const TelInput = styled(NameInput)``;
 export const SearchInput = styled(NameInput)``;
+export const DeleteBtn = styled(AddBtn)`
+  margin: 0;
+  padding: 0.3em;
+`;

@@ -1,5 +1,16 @@
 import styled from 'styled-components';
 export const BookLi = styled.li`
-  padding: 0.5em;
-  margin: 0.5em;
+  width: 90%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.2em;
+  margin: 0.2em;
+`;
+export const NameSpan = styled.span`
+  font-weight: 600;
+`;
+export const TelSpan = styled(NameSpan)`
+  font-weight: 500;
 `;
