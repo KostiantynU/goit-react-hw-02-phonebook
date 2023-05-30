@@ -30,7 +30,8 @@ export const AddBtn = styled.button`
   border: 1px solid gray;
   &:hover,
   &:focus {
-    background: rgba(0, 216, 255, 074);
+    /* background: rgba(0, 216, 255, 074); */
+    background: rgba(147, 114, 163, 074);
   }
 `;
 export const TelInput = styled(NameInput)``;
