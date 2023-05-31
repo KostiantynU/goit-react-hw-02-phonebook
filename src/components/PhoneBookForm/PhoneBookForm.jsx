@@ -15,7 +15,7 @@ export class PhoneBookForm extends Component {
       id: nanoid(),
       number: evt.target.number.value,
     };
-    this.changeContacts(newContact);
+    this.props.changeContacts(newContact);
     this.reset();
   };
   reset = () => {
