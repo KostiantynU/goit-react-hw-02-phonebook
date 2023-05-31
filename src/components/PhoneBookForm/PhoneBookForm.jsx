@@ -8,14 +8,14 @@ export class PhoneBookForm extends Component {
     number: '',
   };
 
-  changeBook = (evt, changeContacts) => {
+  changeBook = evt => {
     evt.preventDefault();
     const newContact = {
       name: evt.target.name.value,
       id: nanoid(),
       number: evt.target.number.value,
     };
-    changeContacts(newContact);
+    this.changeContacts(newContact);
     this.reset();
   };
   reset = () => {
@@ -26,11 +26,9 @@ export class PhoneBookForm extends Component {
   };
 
   render() {
-    const { changeContacts } = this.props;
-
     const { name: nameValue, number: telValue } = this.state;
     return (
-      <BookForm onSubmit={evt => this.changeBook(evt, changeContacts)}>
+      <BookForm onSubmit={evt => this.changeBook(evt)}>
         <Div>
           <Paragraph>Name</Paragraph>
           <NameInput
@@ -61,10 +59,3 @@ export class PhoneBookForm extends Component {
 PhoneBookForm.propTypes = {
   changeContacts: PropTypes.func.isRequired,
 };
-// PhoneBookForm.propTypes = {
-//   changeBook: PropTypes.func.isRequired,
-//   nameValue: PropTypes.string.isRequired,
-//   handleChangeName: PropTypes.func.isRequired,
-//   telValue: PropTypes.string.isRequired,
-//   handleChangeTel: PropTypes.func.isRequired,
-// };

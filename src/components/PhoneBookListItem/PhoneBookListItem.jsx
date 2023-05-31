@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import { PhoneBookListItem, NameSpan, TelSpan } from './PhoneBookListItemStyled';
 import { DeleteBtn } from 'components/PhoneBookForm/PhoneBookFormStyled';
 
-export function BookItem(props) {
-  const { contactName, number, btnId, deleteItem } = props;
+export function BookItem({ contactName, number, btnId, deleteItem }) {
   return (
     <PhoneBookListItem>
       <NameSpan>{contactName} :</NameSpan> <TelSpan>{number}</TelSpan>

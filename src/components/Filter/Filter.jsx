@@ -7,7 +7,7 @@ export class Filter extends Component {
     return (
       <>
         <Paragraph>Find contacts by name</Paragraph>
-        <SearchInput onChange={evt => handleChangeSearch(evt)} />
+        <SearchInput onChange={handleChangeSearch} />
       </>
     );
   }

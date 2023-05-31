@@ -23,9 +23,6 @@ export class App extends Component {
     if (
       this.state.contacts.some(el => {
         return el.name.toLowerCase().includes(newContact.name.toLowerCase());
-        // Ще один варіант порівняння імені наявного в списку контактів
-        // Перший варіант мені більше подобається
-        // return el.name.toLowerCase() === newContact.name.toLowerCase();
       })
     ) {
       return alert(`${newContact.name} is already in list!`);
@@ -41,8 +38,7 @@ export class App extends Component {
 
   arrayWithSearch = () => {
     const searchQuery = this.state.filter;
-    const filtered = this.state.contacts.filter(el => el.name.toLowerCase().includes(searchQuery));
-    return filtered;
+    return this.state.contacts.filter(el => el.name.toLowerCase().includes(searchQuery));
   };
 
   deleteItem = btnId => {
@@ -68,16 +64,3 @@ export class App extends Component {
     );
   }
 }
-
-/* <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div> */
